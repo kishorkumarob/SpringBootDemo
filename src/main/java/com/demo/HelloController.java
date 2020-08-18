@@ -17,11 +17,11 @@ public class HelloController {
 
     @RequestMapping("/hello")
     public String hello() {
-    	Path path = Paths.get("D:\\lqb\\loans\\pa");
+    	Path path = Paths.get('/lqb/loans/pa');
         try {
             if (Files.notExists(path)) {
             	Files.createDirectories(path);
-            	File file = new File(path+"\\test.txt");
+            	File file = new File(path+'/test.txt');
             	file.createNewFile();
             	   System.out.println(file.exists());
             } else {	

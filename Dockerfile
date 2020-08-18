@@ -8,5 +8,5 @@ MAINTAINER "kishorngr@gmail.com"
 # Copy to images tomcat path 
 COPY target/springbootdemo-0.0.1-SNAPSHOT.jar /demo.jar
 
-EXPOSE 8000
+EXPOSE 9000
 CMD ["java", "-jar", "/demo.jar"]

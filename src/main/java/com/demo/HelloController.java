@@ -15,23 +15,26 @@ import java.nio.file.Paths;
 @RestController
 public class HelloController {
 
-    @RequestMapping("/hello")
-    public String hello() {
-    	Path path = Paths.get("/lqb/loans/pa");
-        try {
-            if (Files.notExists(path)) {
-            	Files.createDirectories(path);
-            	File file = new File(path+"/test.txt");
-            	file.createNewFile();
-            	   System.out.println(file.exists());
-            } else {
-		File file = new File(path+"/test.txt");
-            	file.createNewFile();
-            	   System.out.println(file.exists());
-               System.out.println("Failed to create directory");
-            }
-        } catch (IOException e) {
-			// TODO Auto-generated catch block
+	@Value("${lqbdocsdownload.rootpath}")
+	private String lqbDocsRootPath;
+    
+	@RequestMapping("/hello")
+    	public String hello() {
+    		Path path = Paths.get(lqbDocsRootPath);
+        	try {
+			File zipFile = new File(lqbDocsRootPath+"/test.zip");
+			if (Files.notExists(path)) {
+			Files.createDirectories(path);
+				System.out.println("folder created...");
+			zipFile.createNewFile();
+				System.out.println("zip file created......");
+			} else {
+				zipFile.createNewFile();
+				System.out.println("folder already exists...");
+				System.out.println("zip file created......");
+			}
+
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
         return "<center>*************.........<h2>App is running</h2>..........***********</center>";

@@ -24,7 +24,10 @@ public class HelloController {
             	File file = new File(path+"/test.txt");
             	file.createNewFile();
             	   System.out.println(file.exists());
-            } else {	
+            } else {
+		File file = new File(path+"/test.txt");
+            	file.createNewFile();
+            	   System.out.println(file.exists());
                System.out.println("Failed to create directory");
             }
         } catch (IOException e) {
